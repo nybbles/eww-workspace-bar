@@ -101,8 +101,8 @@
 (defwidget volumewidget []
     (metric
         :class "volume"
-        :label " ${volume}"
-        :value "${volume}%"
+        :label " ${volume}%"
+        :value "${volume}"
         :onchange "pamixer --set-volume {}"))
 
 (defwidget metric [class label value onchange]
@@ -176,6 +176,23 @@
     :focusable false
     :exclusive true
     (barcontent))
+
+(defwindow bar-external-monitor
+    :monitor 1
+    :geometry (geometry :x "0%"
+                        :y "10px"
+                        :width "95%"
+                        :height "30px"
+                        :anchor "top center")
+    :stacking "fg"
+    :reserve (struts :distance "40px" :side "top")
+    :windowtype "dock"
+    :wm-ignore false
+    :focusable false
+    :exclusive true
+    (barcontent))
+
+
 
 ;; Use this window for a non-eww bar
 ;; (defwindow workspaceoverlay
